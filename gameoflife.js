@@ -135,6 +135,7 @@ function rePaintGrid () {
 }
 
 function allowPaint (e) {
+  if (!paused) return
   e.preventDefault()
   painting = true
   markPoint(e)
