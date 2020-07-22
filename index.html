@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Game of Life</title>
+    <link rel='stylesheet' href='style.css'>
+  </head>
+  <body>
+    <div id='main-container'>
+      <div id='grid-container'>
+      </div>
+        <div id='description-container'>
+          <div id='description'>
+            <p>This is <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"><strong>Conway's Game of Life</strong>.</a></p>
+            <p>It is a <a href="https://en.wikipedia.org/wiki/Cellular_automaton">celullar automaton</a> created by John Horton Conway in 1970.
+            </p>
+            <p>It is very simple. We have a grid in which each square can be either <strong>"dead"</strong> or <strong>"alive"</strong>. </p>
+            <p>In order to determine that, you must run each square through a set of rules and set their state.</p>
+            <p> These rules are based on each square's "neighbors": the 8 other squares surrounding them.</p>
+            <p> After running the rules through the entire grid, a generation is created.</p>
+            <p>The game plays infinitely by creating generation after generation.</p>
+            <p>The rules are as follows:</p>
+            <ul>
+              <li>Any "live" cell with 2 or 3 "live" neighbors stays "live"</li>
+              <li>Any "dead" cell with exactly 3 "live" neighbors becomes "live"</li>
+              <li>Any other cells become "dead"</li>
+            </ul>
+            <p>While the game's rules are very simple, it can create some very complex shapes and patterns.</p>
+            <p>The grid on the left is interactive. You can draw on it by turning on <strong>Pause</strong> and using your mouse clicks. You can also pause by tapping the <strong>Spacebar</strong>.</p>
+            <p>Try recreating some of the shapes in the game's Wikipedia page, like Gosper's Glider Gun.</p>
+          </div>
+          <div id='controls-container'>
+              <div class='control enabled'>
+                <div class='control-label'> Night Mode </div>
+                <label for='nightmode' class='switch'>
+                  <input type='checkbox' class='checkbox-control' id='nightmode'>
+                  <span class='slider'></span>
+                </label>
+              </div>
+              <div class='control enabled'>
+                <div class='control-label'> Pause </div>
+                <label for='pause' class='switch'>
+                  <input type='checkbox' class='checkbox-control' id='pause'>
+                  <span class='slider'></span>
+                </label>
+              </div>
+              <div class='control enabled'>
+                <div class='control-label'> Only Black/White </div>
+                <label for='greyscale' class='switch'>
+                  <input checked type='checkbox' class='checkbox-control' id='greyscale'>
+                  <span class='slider'></span>
+                </label>
+              </div>
+              <div class='control enabled' id='invert-control'>
+                <div class='control-label'> Invert Grid colors </div>
+                <label for='invert' class='switch'>
+                  <input type='checkbox' class='checkbox-control' id='invert'>
+                  <span class='slider'></span>
+                </label>
+              </div>
+              <div id='buttons-container'>
+                <div class='control enabled'>
+                  <button class='control-button' id='clear'>Clear Grid</button>
+                </div>
+                <div class='control enabled'>
+                  <button class='control-button' id='randomize'>Randomize</button>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <script src='gameoflife.js'></script>
+    </body>
+</html>
