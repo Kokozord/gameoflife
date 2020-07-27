@@ -9,6 +9,7 @@ const clearButton = document.getElementById('clear')
 const randomButton = document.getElementById('randomize')
 const canvas = { height: 50, width: 50 }
 
+document.addEventListener('mouseup', liftMouse)
 nightModeSwitch.addEventListener('change', switchNightMode)
 forceGreyscaleSwitch.addEventListener('change', switchGreyscale)
 invertSwitch.addEventListener('change', switchInverted)
@@ -46,7 +47,6 @@ function createGrid () {
       div.id = `${i}, ${j}`
       div.addEventListener('mousedown', allowPaint)
       div.addEventListener('mouseover', markPoint)
-      div.addEventListener('mouseup', liftMouse)
       gridContainer.appendChild(div)
     }
   }
@@ -162,14 +162,14 @@ function liftMouse (e) {
 
 function findNeighbors (x, y) {
   return [
-    { x: x + 1, y: y },
-    { x: x + 1, y: y + 1 },
-    { x: x + 1, y: y - 1 },
-    { x: x, y: y + 1 },
-    { x: x, y: y - 1 },
-    { x: x - 1, y: y },
-    { x: x - 1, y: y + 1 },
-    { x: x - 1, y: y - 1 }
+    { x: (x + 1 + canvas.width) % canvas.width, y: y },
+    { x: (x + 1 + canvas.width) % canvas.width, y: (y + 1 + canvas.width) % canvas.width },
+    { x: (x + 1 + canvas.width) % canvas.width, y: (y - 1 + canvas.width) % canvas.width },
+    { x: x, y: (y + 1 + canvas.width) % canvas.width },
+    { x: x, y: (y - 1 + canvas.width) % canvas.width },
+    { x: (x - 1 + canvas.width) % canvas.width, y: y },
+    { x: (x - 1 + canvas.width) % canvas.width, y: (y + 1 + canvas.width) % canvas.width },
+    { x: (x - 1 + canvas.width) % canvas.width, y: (y - 1 + canvas.width) % canvas.width }
   ]
 }
 
